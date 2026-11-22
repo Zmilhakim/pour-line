@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/41fb543c-7a49-48b1-b808-74e590a3a278>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> a9b36361-4cce-45b0-9267-05f95268dd65
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> a9b36361-4cce-45b0-9267-05f95268dd65
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 6f37bbc0-556a-43aa-b3ec-cb944216e10d
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/6f37bbc0-556a-43aa-b3ec-cb944216e10d>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  RunInEditor: false
+  ComponentUid: 7583a6d0-8056-4e93-9188-6be997312cdd
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    restartIcon: false
+    scaleLabelsRoot: false
+    standInCaptionRoot: false
+    startOverButtonRoot: false
+    textColor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - startOverButtonRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      scaleLabelsRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      standInCaptionRoot: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      restartIcon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      textColor: !<Vec3> {x: 0.950000, y: 0.970000, z: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @input SceneObject startOverButtonRoot {"hint":"Authored root for the Start over button. Found by name when left empty."}'
+    - '// @input SceneObject scaleLabelsRoot {"hint":"Authored root for the six millilitre numbers. Found by name when left empty."}'
+    - '// @input SceneObject standInCaptionRoot {"hint":"Authored root for the stand-in caption. Found by name when left empty."}'
+    - '// @input Asset.Texture restartIcon {"hint":"Restart icon for the button. Falls back to Assets/Icons/restart_alt.png."}'
+    - '// @input vec3 textColor = {0.95,0.97,1} {"hint":"Colour of the scale numbers and the caption. Keep it light: black is invisible on the display.", "widget":"color"}'

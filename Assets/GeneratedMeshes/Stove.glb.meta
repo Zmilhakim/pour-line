@@ -1,0 +1,125 @@
+- !<AssetImportMetadata/5ac16251-618a-405e-8f3e-336cb2a5070c>
+  ImportedAssetIds:
+    26ba073d67b9d0dd: !<reference> 32b889de-47d6-44a9-90a5-4e7fefc2e4b4
+    88ab437fd121cc69: !<reference> 15b445ca-021b-45b9-a011-46ff8fdfecf4
+    8c2c6f3cf8d060fd: !<reference> 97164119-1955-4d74-8f37-03a10b34a88f
+    Meshes/Mesh 1: !<reference> acf6708e-4374-44a9-8b4c-71e00d3df58a
+    Scene: !<reference> 753da940-7243-4e0e-8b2f-5b6bdffb8607
+    d596665d1a4bffd1: !<reference> 14451efa-2327-456f-b0a2-aff9daf49aa2
+    ed3acca98b96b0a1: !<reference> a20dee8e-f9ac-447b-bde9-a33e99e935ce
+  ImporterName: GltfImporter
+  PrimaryAsset: !<reference> 753da940-7243-4e0e-8b2f-5b6bdffb8607
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> bced6b13-0e13-450e-8361-75cbfb323413
+  DependentFiles:
+    []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBasedV2
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: true
+    ConvertMetersToCentimeters: true
+    RegenerateTangents: false
+    OptimizeMesh: true
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<FileCompressionSettings>
+        {}
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<RenderMeshVisual/14451efa-2327-456f-4f5d-5006250b655d>
+  PrefabRemaps:
+    []
+  Name: ""
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> acf6708e-4374-44a9-8b4c-71e00d3df58a
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/15b445ca-021b-45b9-5fee-b9007020130b>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 97164119-1955-4d74-70c8-fc5ef4cb5770
+  Components:
+    []
+- !<SceneObject/32b889de-47d6-44a9-6f5a-b180103d1b4b>
+  PrefabRemaps:
+    []
+  Name: Stove
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 15b445ca-021b-45b9-5fee-b9007020130b
+  Components:
+    []
+- !<SceneObject/97164119-1955-4d74-70c8-fc5ef4cb5770>
+  PrefabRemaps:
+    []
+  Name: Scene0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> a20dee8e-f9ac-447b-4216-5cc16616ca31
+  Components:
+    []
+- !<SceneObject/a20dee8e-f9ac-447b-4216-5cc16616ca31>
+  PrefabRemaps:
+    []
+  Name: geometry_0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 14451efa-2327-456f-4f5d-5006250b655d
+- !<ObjectPrefabAssetData/bced6b13-0e13-450e-8361-75cbfb323413>
+  Prototype: !<ObjectOwner/5103770d-2019-4b75-8f56-04e91c34cf67>
+    PackagePath: ""
+    objects:
+      - !<own> 32b889de-47d6-44a9-6f5a-b180103d1b4b

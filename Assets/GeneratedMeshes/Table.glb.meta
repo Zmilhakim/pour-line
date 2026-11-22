@@ -1,0 +1,125 @@
+- !<AssetImportMetadata/cea1ac58-52bc-4b9d-9627-8bc5d7194a5e>
+  ImportedAssetIds:
+    26ba073d67b9d0dd: !<reference> 08e07acc-d99b-474b-bbbd-b931866ea7bc
+    88ab437fd121cc69: !<reference> 451e129b-a988-4e3d-bf00-5c530bf1331f
+    8c2c6f3cf8d060fd: !<reference> 42497566-2bd0-46b2-bd62-2d20be3ccb9f
+    Meshes/Mesh 1: !<reference> 2b560339-71c4-483b-a2d1-78f467fb3480
+    Scene: !<reference> 0807dac1-fe90-4d82-886e-378432d13294
+    d596665d1a4bffd1: !<reference> 651e7a7a-fa71-4505-9761-5f8e2f129e49
+    ed3acca98b96b0a1: !<reference> 4ad19e13-a4df-4be5-bd9c-0b0ca5ac5382
+  ImporterName: GltfImporter
+  PrimaryAsset: !<reference> 0807dac1-fe90-4d82-886e-378432d13294
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 2475187b-dfa5-42e7-8842-0e1fcabc9d2e
+  DependentFiles:
+    []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBasedV2
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: true
+    ConvertMetersToCentimeters: true
+    RegenerateTangents: false
+    OptimizeMesh: true
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<FileCompressionSettings>
+        {}
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<SceneObject/08e07acc-d99b-474b-4442-46ce79915843>
+  PrefabRemaps:
+    []
+  Name: Table
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 451e129b-a988-4e3d-40ff-a3acf40ecce0
+  Components:
+    []
+- !<ObjectPrefabAssetData/2475187b-dfa5-42e7-8842-0e1fcabc9d2e>
+  Prototype: !<ObjectOwner/82654461-df53-4e92-b201-ed958fac98e2>
+    PackagePath: ""
+    objects:
+      - !<own> 08e07acc-d99b-474b-4442-46ce79915843
+- !<SceneObject/42497566-2bd0-46b2-429d-d2df41c33460>
+  PrefabRemaps:
+    []
+  Name: Scene0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 4ad19e13-a4df-4be5-4263-f4f35a53ac7d
+  Components:
+    []
+- !<SceneObject/451e129b-a988-4e3d-40ff-a3acf40ecce0>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 42497566-2bd0-46b2-429d-d2df41c33460
+  Components:
+    []
+- !<SceneObject/4ad19e13-a4df-4be5-4263-f4f35a53ac7d>
+  PrefabRemaps:
+    []
+  Name: geometry_0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 651e7a7a-fa71-4505-689e-a071d0ed61b6
+- !<RenderMeshVisual/651e7a7a-fa71-4505-689e-a071d0ed61b6>
+  PrefabRemaps:
+    []
+  Name: ""
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> 2b560339-71c4-483b-a2d1-78f467fb3480
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}

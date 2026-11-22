@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/c9cef031-b2ba-4bc9-96d0-9aba68869869>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f62235f6-bece-4061-acbe-f947433887c1
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f62235f6-bece-4061-acbe-f947433887c1
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 3d6a8ad2-33c1-4edf-9222-86181a037353
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/3d6a8ad2-33c1-4edf-9222-86181a037353>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  RunInEditor: false
+  ComponentUid: b4f938c0-2f94-41da-a18b-2fe25026966d
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    initialOpacity: false
+    material: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      initialOpacity: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Asset.Material material
+    - '// @input float initialOpacity {"hint":"Opacity at start, 0 = hidden, 1 = fully visible"}'

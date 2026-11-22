@@ -20,3 +20,7 @@ PluginsUserPreferences/
 .cursor/
 .vscode/
 .claude/
+
+# Build scratch
+tempAssetGen/
+.virtual-scene.json

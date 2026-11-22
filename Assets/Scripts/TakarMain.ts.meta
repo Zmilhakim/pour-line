@@ -1,0 +1,89 @@
+- !<AssetImportMetadata/d133b409-bd15-415f-a4e9-f4dc4b7a2fdf>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 40ad5109-100d-4b1f-90bf-a4f180652627
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 40ad5109-100d-4b1f-90bf-a4f180652627
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 658deab9-84f5-4ffa-8555-fc186dbf8667
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/658deab9-84f5-4ffa-8555-fc186dbf8667>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  RunInEditor: false
+  ComponentUid: 381192d7-2cf1-4f47-b343-38926a29cffb
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    clickAudio: false
+    debugColliders: false
+    glassView: false
+    kettle: false
+    pourAudio: false
+    pourRateMlPerSec: false
+    returnAudio: false
+    scaleFadeSeconds: false
+    scaleHoldSeconds: false
+    sfxVolume: false
+    snapAudio: false
+    ui: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - kettle: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      glassView: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      ui: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      pourAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      snapAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      returnAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      clickAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      pourRateMlPerSec: !<float> 30.000000
+      scaleHoldSeconds: !<float> 3.000000
+      scaleFadeSeconds: 0.600000
+      sfxVolume: 0.800000
+      debugColliders: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">TakarMain – pour flow, scale timing and test API</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">References</span>"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input AssignableType_1 kettle {"hint":"TakarKettleController on the Kettle object (kettle pose and pinch-drag state)"}'
+    - '// @input AssignableType_2 glassView {"hint":"TakarGlassView on GlassStation (liquid, water stream, tick marks)"}'
+    - '// @input AssignableType_3 ui {"hint":"TakarUI on the TakarUI object (Start over button, scale numbers, caption)"}'
+    - '// @input Component.AudioComponent pourAudio {"hint":"AudioComponent holding PourLoop.wav (looped while water flows)"}'
+    - '// @input Component.AudioComponent snapAudio {"hint":"AudioComponent holding KettleSnap.wav (kettle snaps over the glass)"}'
+    - '// @input Component.AudioComponent returnAudio {"hint":"AudioComponent holding KettleReturn.wav (kettle goes back to the stove)"}'
+    - '// @input Component.AudioComponent clickAudio {"hint":"AudioComponent holding ButtonClick.wav (Start over pressed)"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">Settings</span>"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float pourRateMlPerSec = 30 {"hint":"Millilitres added per second while the kettle is pouring", "widget":"slider", "min":5, "max":100, "step":1}'
+    - '// @input float scaleHoldSeconds = 3 {"hint":"Seconds the scale stays fully visible after pouring ends, before it fades", "widget":"slider", "min":0, "max":10, "step":0.1}'
+    - '// @input float scaleFadeSeconds = 0.6 {"hint":"Seconds the scale takes to fade out after the hold", "widget":"slider", "min":0.1, "max":3, "step":0.1}'
+    - '// @input float sfxVolume = 0.8 {"hint":"Volume of all sound effects", "widget":"slider", "min":0, "max":1, "step":0.05}'
+    - '// @input bool debugColliders {"hint":"Draw every collider as a wireframe (takes effect on preview restart)"}'
+    - '// @ui {"widget":"group_end"}'

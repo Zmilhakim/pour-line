@@ -1,0 +1,125 @@
+- !<AssetImportMetadata/c58060ff-3cf1-4eab-85e6-43b0a511c431>
+  ImportedAssetIds:
+    26ba073d67b9d0dd: !<reference> ccd9f425-788a-4c6b-bcd4-6d079e4c426d
+    88ab437fd121cc69: !<reference> 86523128-5377-4d77-8417-7c3f7635f5b8
+    8c2c6f3cf8d060fd: !<reference> bfee08c8-4fec-4d62-bbc7-0ce574005127
+    Meshes/Mesh 1: !<reference> 3c6aec2a-bb73-49fe-8c72-7378039840ac
+    Scene: !<reference> abf1b468-7ccd-482c-a949-682b2b0f6b43
+    d596665d1a4bffd1: !<reference> 93383fb4-4562-4906-bbb0-37f4a9f807fb
+    ed3acca98b96b0a1: !<reference> 94d535c3-a13c-4c5d-b680-a0610838788e
+  ImporterName: GltfImporter
+  PrimaryAsset: !<reference> abf1b468-7ccd-482c-a949-682b2b0f6b43
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> e6ab44b0-73ce-4151-8619-c18389aa519a
+  DependentFiles:
+    []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBasedV2
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: true
+    ConvertMetersToCentimeters: true
+    RegenerateTangents: false
+    OptimizeMesh: true
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<FileCompressionSettings>
+        {}
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<SceneObject/86523128-5377-4d77-7be8-83c089ca0a47>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> bfee08c8-4fec-4d62-4438-f31a8bffaed8
+  Components:
+    []
+- !<RenderMeshVisual/93383fb4-4562-4906-444f-c80b5607f804>
+  PrefabRemaps:
+    []
+  Name: ""
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> 3c6aec2a-bb73-49fe-8c72-7378039840ac
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/94d535c3-a13c-4c5d-497f-5f9ef7c78771>
+  PrefabRemaps:
+    []
+  Name: geometry_0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 93383fb4-4562-4906-444f-c80b5607f804
+- !<SceneObject/bfee08c8-4fec-4d62-4438-f31a8bffaed8>
+  PrefabRemaps:
+    []
+  Name: Scene0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 94d535c3-a13c-4c5d-497f-5f9ef7c78771
+  Components:
+    []
+- !<SceneObject/ccd9f425-788a-4c6b-432b-92f861b3bd92>
+  PrefabRemaps:
+    []
+  Name: ScaleTicks
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 86523128-5377-4d77-7be8-83c089ca0a47
+  Components:
+    []
+- !<ObjectPrefabAssetData/e6ab44b0-73ce-4151-8619-c18389aa519a>
+  Prototype: !<ObjectOwner/aae57998-6f40-4676-8e2e-f62ae0309e38>
+    PackagePath: ""
+    objects:
+      - !<own> ccd9f425-788a-4c6b-432b-92f861b3bd92

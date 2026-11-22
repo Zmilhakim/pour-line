@@ -5,6 +5,8 @@
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> 0005641c-028d-459a-0000-000000014b4d
     - !<own> f5d74682-203a-4970-81ea-9fa7b88c96bb
+    - !<own> c35ca2c3-7838-453b-8fde-599aca8e2a12
+    - !<own> 6d64e1e7-f542-4bbf-994b-ad6e1b159da5
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
       - id: 1
@@ -192,6 +194,37 @@
     - !<own> 276368e3-f687-4cc6-947d-24de3a78c9af
   Components:
     []
+- !<SceneObject/015f7599-0acf-4c4c-89aa-5481a35c8786>
+  PrefabRemaps:
+    []
+  Name: TakarUI
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ca4b29d7-5a97-492b-9ff3-c074eebd5da5
+- !<ScriptComponent/036c479c-e5ed-48a2-bce2-b356881aa161>
+  PrefabRemaps:
+    []
+  Name: TableMesh
+  Enabled: true
+  ScriptAsset: !<reference> 52195c41-ea51-4bc2-9b75-7eb208c1ca0c
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/0451d993-a1f7-464e-9b69-32c0d9af8ed7>
   PrefabRemaps:
     []
@@ -331,6 +364,21 @@
     []
   Components:
     []
+- !<SceneObject/0e6d5eec-7062-490c-bf13-10a542345e79>
+  PrefabRemaps:
+    []
+  Name: KettlePourSpot
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 15.500000, y: -56.000000, z: -55.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
 - !<SceneObject/0e778a10-bd57-4a2a-b20a-b6f4326e8058>
   PrefabRemaps:
     []
@@ -433,6 +481,21 @@
     - !<own> a6af4948-9adc-4052-ae22-db902dd2764e
   Components:
     []
+- !<SceneObject/13cb1988-e978-4299-b41f-08665286d112>
+  PrefabRemaps:
+    []
+  Name: Stove
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -70.000000, z: -55.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5a1b2f61-ecaa-4d01-9b85-f95a95370fff
 - !<SceneObject/181c239f-175e-4912-94fc-d37a2599b2d6>
   PrefabRemaps:
     []
@@ -448,6 +511,21 @@
     []
   Components:
     []
+- !<SceneObject/1c1b56e6-1d97-4c85-bab5-cea62d522886>
+  PrefabRemaps:
+    []
+  Name: ScaleTicks
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.500000, z: 0.000000}
+    Rotation: {x: 0.000000, y: -28.600000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c4211e0e-ced7-47b4-a01d-7b305d9a2ccb
 - !<RenderMeshVisual/1f969daa-5809-4500-b314-98d91ccba131>
   PrefabRemaps:
     []
@@ -483,6 +561,37 @@
     []
   Components:
     - !<own> e1031f7e-3474-489f-a529-282f7192f812
+- !<ScriptComponent/206082f0-81b5-46d0-854c-fc4329987ca4>
+  PrefabRemaps:
+    []
+  Name: TakarMain
+  Enabled: true
+  ScriptAsset: !<reference> 40ad5109-100d-4b1f-90bf-a4f180652627
+  ScriptInputsDefault:
+    pourRateMlPerSec: true
+    scaleHoldSeconds: true
+    scaleFadeSeconds: true
+    sfxVolume: true
+    debugColliders: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      kettle: !<MappingBased.AssignableType_1> c15481f1-b6d8-43c9-83ae-f4908e9c4e05
+      glassView: !<MappingBased.AssignableType_2> b0e9f8ef-a30d-42ef-8955-d8b05bae49f2
+      ui: !<MappingBased.AssignableType_3> ca4b29d7-5a97-492b-9ff3-c074eebd5da5
+      pourAudio: !<reference.AudioComponent> d2842b87-47b1-4186-b712-e98127340b8d
+      snapAudio: !<reference.AudioComponent> a8d29763-c9c3-431b-8e4f-037747406703
+      returnAudio: !<reference.AudioComponent> e7b7f0df-5e51-4ece-b851-33dd90f96f2f
+      clickAudio: !<reference.AudioComponent> dfe006b8-7c1b-4184-810f-fe0c557b60a4
+      pourRateMlPerSec: !<float> 30.000000
+      scaleHoldSeconds: !<float> 3.000000
+      scaleFadeSeconds: 0.600000
+      sfxVolume: 0.800000
+      debugColliders: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/23018601-1041-4785-a20e-9ad5ab722f95>
   PrefabRemaps:
     []
@@ -498,6 +607,22 @@
     - !<own> 83ef588c-5040-4344-b15f-0554c739da0b
   Components:
     []
+- !<ScriptComponent/2321a420-b255-42b4-93f9-3df32e9e356a>
+  PrefabRemaps:
+    []
+  Name: GlassMesh
+  Enabled: true
+  ScriptAsset: !<reference> 80a820a3-178a-4118-af43-7017454282cd
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/23861703-e5d4-4885-be1b-c3358c1877a4>
   PrefabRemaps:
     []
@@ -522,6 +647,21 @@
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 2.837170, z: 0.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
+- !<SceneObject/242dd99e-6e92-4b33-ba95-b266e5ba4640>
+  PrefabRemaps:
+    []
+  Name: StandInCaptionRoot
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 16.000000, y: -69.000000, z: -38.000000}
+    Rotation: {x: -55.000000, y: 0.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
@@ -575,6 +715,21 @@
     - !<own> 3a794764-c758-4d72-9d89-bf3ed978113f
   Components:
     []
+- !<SceneObject/27fbeead-c02c-46fc-a37c-ddbbd8b360b0>
+  PrefabRemaps:
+    []
+  Name: SnapAudio
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> a8d29763-c9c3-431b-8e4f-037747406703
 - !<Skin/28e05826-1521-46fa-a54c-80f2957ec80c>
   PrefabRemaps:
     []
@@ -630,6 +785,21 @@
     ring-3_end_end_end: !<reference> b93dfa60-41bd-4999-ac0f-4b2f1df2bdaf
     thumb-3_end_end_end_end: !<reference> 08e3cc22-f2e1-49fb-9ddc-145fe6547ce3
     pinky-3_end_end: !<reference> d08269e3-acd4-4156-b5b9-477ca259611d
+- !<SceneObject/2a9ed64f-9c34-4663-894a-db5d148b504e>
+  PrefabRemaps:
+    []
+  Name: ScaleLabelsRoot
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 29.219999, y: -69.500000, z: -50.869999}
+    Rotation: {x: 0.000000, y: -28.600000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
 - !<SceneObject/2dae2a27-8ce6-466a-8bff-622195c1b3a8>
   PrefabRemaps:
     []
@@ -645,6 +815,21 @@
     - !<own> a7da4af4-3d84-4acd-a31e-920a56b4c5c8
   Components:
     []
+- !<SceneObject/2f8e0085-164a-46fc-80c6-516040bb3307>
+  PrefabRemaps:
+    []
+  Name: PourAudio
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d2842b87-47b1-4186-b712-e98127340b8d
 - !<RenderMeshVisual/335c5f8b-2917-49e8-8af5-220696e9bc09>
   PrefabRemaps:
     []
@@ -678,6 +863,21 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> e42bbb9f-e951-4432-be2e-3cc712b1fc33
+  Components:
+    []
+- !<SceneObject/34fdb5f5-6619-4081-a61e-27070e960867>
+  PrefabRemaps:
+    []
+  Name: StartOverButtonRoot
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -27.000000, y: -62.000000, z: -55.000000}
+    Rotation: {x: -40.000000, y: 26.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
   Components:
     []
 - !<RenderMeshVisual/35501b69-b651-41e6-9b64-72a252df8105>
@@ -821,6 +1021,21 @@
     []
   Components:
     []
+- !<SceneObject/46b48d81-eb12-494e-80fa-88581432e4b7>
+  PrefabRemaps:
+    []
+  Name: CoffeeLiquid
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.500000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 5f111255-2c7a-410d-bf9d-37a6d1eb50de
 - !<SceneObject/46b79537-a269-46f1-9483-500d7a4170d6>
   PrefabRemaps:
     []
@@ -926,6 +1141,39 @@
     - !<own> bf2095b6-c6f8-48c8-b840-e0a6cec0dc99
   Components:
     []
+- !<ScriptComponent/5a1b2f61-ecaa-4d01-9b85-f95a95370fff>
+  PrefabRemaps:
+    []
+  Name: StoveMesh
+  Enabled: true
+  ScriptAsset: !<reference> 345ae4ca-5ddc-4f7c-82f3-31cfa8de220e
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/5f111255-2c7a-410d-bf9d-37a6d1eb50de>
+  PrefabRemaps:
+    []
+  Name: CoffeeLiquidMesh
+  Enabled: true
+  ScriptAsset: !<reference> 8d63561e-e963-4f68-8df9-0119827a6e01
+  ScriptInputsDefault:
+    initialFill: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      initialFill: !<float> 0.000000
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/5f153ad7-2baa-4fd9-a298-0dcfad86da3b>
   PrefabRemaps:
     []
@@ -950,6 +1198,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/62543fe5-a38f-4685-9ae6-00387f5c02ca>
+  PrefabRemaps:
+    []
+  Name: Glass
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 2321a420-b255-42b4-93f9-3df32e9e356a
 - !<ScriptComponent/62967490-d66e-4479-8829-e5c9da5b5b57>
   PrefabRemaps:
     []
@@ -1056,6 +1319,21 @@
     - !<own> ca40734c-262f-48d3-affa-9f99cd2940f7
   Components:
     []
+- !<SceneObject/6b14003b-b8ef-49ab-b871-e428951fa0d4>
+  PrefabRemaps:
+    []
+  Name: Table
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 5.000000, y: -73.000000, z: -55.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 036c479c-e5ed-48a2-bce2-b356881aa161
 - !<SceneObject/6c1f70d7-86d0-4972-b203-29780f8798e6>
   PrefabRemaps:
     []
@@ -1071,6 +1349,21 @@
     - !<own> 0e778a10-bd57-4a2a-b20a-b6f4326e8058
   Components:
     []
+- !<SceneObject/6d64e1e7-f542-4bbf-994b-ad6e1b159da5>
+  PrefabRemaps:
+    []
+  Name: AiPreviewAgent Handler
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> c8e1a4de-f83c-4b84-9dac-0d47f7c6ad53
 - !<SceneObject/6dbaab8f-d98a-4f36-b836-1d7c8a0cca87>
   PrefabRemaps:
     []
@@ -1131,6 +1424,22 @@
     - !<own> f666b5eb-6a03-4db0-9d84-5b34c6e8905a
   Components:
     []
+- !<ScriptComponent/757eaddb-d314-43f8-8634-cc8bda7cc667>
+  PrefabRemaps:
+    []
+  Name: KettleMesh
+  Enabled: true
+  ScriptAsset: !<reference> 6221b0b8-649c-4afb-b4e5-c5be8ac8003b
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/7605c62c-4c45-4fc0-b364-2d76d26f2b82>
   PrefabRemaps:
     []
@@ -1330,6 +1639,24 @@
     - !<own> 6c1f70d7-86d0-4972-b203-29780f8798e6
   Components:
     []
+- !<SceneObject/862703f5-802b-44d0-b362-9a6746eec426>
+  PrefabRemaps:
+    []
+  Name: TakarMain
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 2f8e0085-164a-46fc-80c6-516040bb3307
+    - !<own> 27fbeead-c02c-46fc-a37c-ddbbd8b360b0
+    - !<own> c7f66661-5230-4632-9bb7-90c22917d178
+    - !<own> 8d747709-47c7-442e-a5a2-a85d727806ab
+  Components:
+    - !<own> 206082f0-81b5-46d0-854c-fc4329987ca4
 - !<ScriptComponent/8729b982-a0ed-49a3-bfd0-400bb465f64f>
   PrefabRemaps:
     []
@@ -1417,6 +1744,40 @@
     - !<own> b859e31c-4c76-46bd-bd6a-042228e52728
   Components:
     []
+- !<SceneObject/8d747709-47c7-442e-a5a2-a85d727806ab>
+  PrefabRemaps:
+    []
+  Name: ClickAudio
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> dfe006b8-7c1b-4184-810f-fe0c557b60a4
+- !<SceneObject/8edc5a0d-d226-4b78-920d-4f09c80a7782>
+  PrefabRemaps:
+    []
+  Name: GlassStation
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 30.000000, y: -70.000000, z: -55.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 62543fe5-a38f-4685-9ae6-00387f5c02ca
+    - !<own> 9807003f-ea18-456d-b305-09170b3e3146
+    - !<own> 46b48d81-eb12-494e-80fa-88581432e4b7
+    - !<own> 90344091-2a41-4221-8e35-76f35357e432
+    - !<own> 1c1b56e6-1d97-4c85-bab5-cea62d522886
+  Components:
+    - !<own> b0e9f8ef-a30d-42ef-8955-d8b05bae49f2
 - !<SceneObject/8fe2a532-9bf3-4cde-b598-04ce5470718d>
   PrefabRemaps:
     []
@@ -1432,6 +1793,21 @@
     - !<own> 8cb3dd13-6ebf-41e6-9a23-94a69dd96f87
   Components:
     []
+- !<SceneObject/90344091-2a41-4221-8e35-76f35357e432>
+  PrefabRemaps:
+    []
+  Name: WaterStream
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.500000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> cdcc9caf-d0de-4728-852f-f25877ab9e9d
 - !<SceneObject/9468c53c-f76f-49b7-8a49-b5ec6af1c5a3>
   PrefabRemaps:
     []
@@ -1448,6 +1824,21 @@
     - !<own> e9454e66-5d09-4a8a-bcd7-dea762326a48
   Components:
     []
+- !<SceneObject/9807003f-ea18-456d-b305-09170b3e3146>
+  PrefabRemaps:
+    []
+  Name: CoffeeGrounds
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.500000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> fee1aceb-b7fd-406c-93ff-74be3f718ba9
 - !<SceneObject/988c408a-99dc-47e6-b7c4-efbf4bf8dc3c>
   PrefabRemaps:
     []
@@ -1633,6 +2024,23 @@
     - !<own> 0c355300-e635-47c1-a8c3-5ddef30b8824
   Components:
     []
+- !<AudioComponent/a8d29763-c9c3-431b-8e4f-037747406703>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 08438b1c-de81-4854-88aa-2153fc22eec5
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/a98a7d22-28b9-4357-97cd-1486e721ac5d>
   PrefabRemaps:
     []
@@ -1663,6 +2071,28 @@
     - !<own> f6687ab7-52ac-408d-a892-8a9559125450
   Components:
     []
+- !<ScriptComponent/b0e9f8ef-a30d-42ef-8955-d8b05bae49f2>
+  PrefabRemaps:
+    []
+  Name: TakarGlassView
+  Enabled: true
+  ScriptAsset: !<reference> 7d0bd09b-586a-4c19-a24b-16b6ed0c6289
+  ScriptInputsDefault:
+    liquidStartColor: true
+    liquidEndColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      coffeeLiquid: !<reference.SceneObject> 46b48d81-eb12-494e-80fa-88581432e4b7
+      coffeeGrounds: !<reference.SceneObject> 9807003f-ea18-456d-b305-09170b3e3146
+      waterStream: !<reference.SceneObject> 90344091-2a41-4221-8e35-76f35357e432
+      scaleTicks: !<reference.SceneObject> 1c1b56e6-1d97-4c85-bab5-cea62d522886
+      liquidStartColor: !<Vec4> {x: 0.380000, y: 0.210000, z: 0.090000, w: 1.000000}
+      liquidEndColor: !<Vec4> {x: 0.800000, y: 0.580000, z: 0.340000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/b22d97e6-4c06-4135-af29-d26adb2b9d86>
   PrefabRemaps:
     []
@@ -1828,6 +2258,22 @@
     - !<own> fe93d992-1114-4f1f-8bef-0a0bbd75747d
   Components:
     []
+- !<SceneObject/beee7357-45c1-4ab0-aebf-778c7c6cdf54>
+  PrefabRemaps:
+    []
+  Name: Kettle
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: -62.000000, z: -55.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 757eaddb-d314-43f8-8634-cc8bda7cc667
+    - !<own> c15481f1-b6d8-43c9-83ae-f4908e9c4e05
 - !<SceneObject/bf2095b6-c6f8-48c8-b840-e0a6cec0dc99>
   PrefabRemaps:
     []
@@ -1843,6 +2289,90 @@
     []
   Components:
     []
+- !<ScriptComponent/c15481f1-b6d8-43c9-83ae-f4908e9c4e05>
+  PrefabRemaps:
+    []
+  Name: TakarKettleController
+  Enabled: true
+  ScriptAsset: !<reference> 1c96ccd2-ed88-43a6-8a7f-54cd98201f5d
+  ScriptInputsDefault:
+    snapDistanceCm: true
+    unsnapDistanceCm: true
+    pourStartLiftCm: true
+    pourTiltDeg: true
+    returnSeconds: true
+    highlightColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      pourSpot: !<reference.SceneObject> 0e6d5eec-7062-490c-bf13-10a542345e79
+      glassStation: !<reference.SceneObject> 8edc5a0d-d226-4b78-920d-4f09c80a7782
+      snapDistanceCm: !<float> 6.000000
+      unsnapDistanceCm: !<float> 10.000000
+      pourStartLiftCm: !<float> 3.000000
+      pourTiltDeg: !<float> 35.000000
+      returnSeconds: 0.400000
+      highlightColor: !<Vec4> {x: 1.000000, y: 0.850000, z: 0.450000, w: 1.000000}
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/c35ca2c3-7838-453b-8fde-599aca8e2a12>
+  PrefabRemaps:
+    []
+  Name: TakarRoot
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 862703f5-802b-44d0-b362-9a6746eec426
+    - !<own> 015f7599-0acf-4c4c-89aa-5481a35c8786
+    - !<own> 6b14003b-b8ef-49ab-b871-e428951fa0d4
+    - !<own> 13cb1988-e978-4299-b41f-08665286d112
+    - !<own> beee7357-45c1-4ab0-aebf-778c7c6cdf54
+    - !<own> 0e6d5eec-7062-490c-bf13-10a542345e79
+    - !<own> 8edc5a0d-d226-4b78-920d-4f09c80a7782
+    - !<own> 34fdb5f5-6619-4081-a61e-27070e960867
+    - !<own> 2a9ed64f-9c34-4663-894a-db5d148b504e
+    - !<own> 242dd99e-6e92-4b33-ba95-b266e5ba4640
+  Components:
+    []
+- !<ScriptComponent/c4211e0e-ced7-47b4-a01d-7b305d9a2ccb>
+  PrefabRemaps:
+    []
+  Name: ScaleTicksMesh
+  Enabled: true
+  ScriptAsset: !<reference> f62235f6-bece-4061-acbe-f947433887c1
+  ScriptInputsDefault:
+    initialOpacity: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      initialOpacity: !<float> 0.000000
+  ScriptTypes:
+    "":
+      {}
+- !<SceneObject/c7f66661-5230-4632-9bb7-90c22917d178>
+  PrefabRemaps:
+    []
+  Name: ReturnAudio
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e7b7f0df-5e51-4ece-b851-33dd90f96f2f
 - !<ScriptComponent/c8e031d3-a8a1-468a-a419-427f8556de4c>
   PrefabRemaps:
     []
@@ -1871,6 +2401,22 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/c8e1a4de-f83c-4b84-9dac-0d47f7c6ad53>
+  PrefabRemaps:
+    []
+  Name: AgentInspectScript
+  Enabled: true
+  ScriptAsset: !<reference> 0b25079c-f5bf-4c6d-96c4-f43b89dfa213
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      {}
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/ca40734c-262f-48d3-affa-9f99cd2940f7>
   PrefabRemaps:
     []
@@ -1886,6 +2432,26 @@
     - !<own> 0a0e1d78-8246-4f5b-ab1a-fdc51837956d
   Components:
     []
+- !<ScriptComponent/ca4b29d7-5a97-492b-9ff3-c074eebd5da5>
+  PrefabRemaps:
+    []
+  Name: TakarUI
+  Enabled: true
+  ScriptAsset: !<reference> a9b36361-4cce-45b0-9267-05f95268dd65
+  ScriptInputsDefault:
+    textColor: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      startOverButtonRoot: !<reference.SceneObject> 34fdb5f5-6619-4081-a61e-27070e960867
+      scaleLabelsRoot: !<reference.SceneObject> 2a9ed64f-9c34-4663-894a-db5d148b504e
+      standInCaptionRoot: !<reference.SceneObject> 242dd99e-6e92-4b33-ba95-b266e5ba4640
+      restartIcon: !<reference.Texture> a080cff7-3f31-4af1-8755-8e89359fbc6d
+      textColor: !<Vec3> {x: 0.950000, y: 0.970000, z: 1.000000}
+  ScriptTypes:
+    "":
+      {}
 - !<Skin/ccf4d3bc-d3c2-4580-b9c5-62f164ef7eef>
   PrefabRemaps:
     []
@@ -1941,6 +2507,23 @@
     index-2: !<reference> 2dae2a27-8ce6-466a-8bff-622195c1b3a8
     thumb-3_end_end_end_end: !<reference> bf2095b6-c6f8-48c8-b840-e0a6cec0dc99
     wrist_to_pinky: !<reference> 3b4f5057-b516-4d3b-9c8d-14c81af2f505
+- !<ScriptComponent/cdcc9caf-d0de-4728-852f-f25877ab9e9d>
+  PrefabRemaps:
+    []
+  Name: WaterStreamMesh
+  Enabled: true
+  ScriptAsset: !<reference> f8903ef9-2ea9-4544-a295-9d37d913d53e
+  ScriptInputsDefault:
+    initialLength: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+      initialLength: !<float> 0.000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/ce2213a1-7aa1-4201-a3c7-c2aaa06fd4ff>
   PrefabRemaps:
     []
@@ -1986,6 +2569,23 @@
     - !<own> bb9036be-541f-49e7-9554-c297d354da21
   Components:
     []
+- !<AudioComponent/d2842b87-47b1-4186-b712-e98127340b8d>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> f2b32f26-6887-40c5-9c5a-48a26db1029f
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<ScriptComponent/d3e2fbc5-8795-4913-9af6-c8626f8e6d9c>
   PrefabRemaps:
     []
@@ -2126,6 +2726,23 @@
     - !<own> d4a9c5e3-fe96-4824-9b20-59f5ad39eabd
   Components:
     []
+- !<AudioComponent/dfe006b8-7c1b-4184-810f-fe0c557b60a4>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> fb616564-7323-4444-b031-d2a47be3083c
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<RenderMeshVisual/e1031f7e-3474-489f-a529-282f7192f812>
   PrefabRemaps:
     []
@@ -2216,6 +2833,23 @@
     - !<own> 0f983d21-20bc-4d89-a991-fbb95bacbd64
   Components:
     []
+- !<AudioComponent/e7b7f0df-5e51-4ece-b851-33dd90f96f2f>
+  PrefabRemaps:
+    []
+  Name: Audio
+  Enabled: true
+  AudioTrack: !<reference> 4e04a6a8-8298-4599-bf61-893df08403cd
+  EnableAutoplayLoop: false
+  Volume: 1.000000
+  EnableMixToSnap: false
+  RecordVolume: 1.000000
+  EnableSpatialAudio: false
+  EnableDistanceEffect: false
+  CurveType: Logarithm
+  MinDistance: 0.000000
+  MaxDistance: 100.000000
+  EnableDirectivityEffect: false
+  EnablePositionEffect: false
 - !<SceneObject/e9454e66-5d09-4a8a-bcd7-dea762326a48>
   PrefabRemaps:
     []
@@ -2394,3 +3028,19 @@
     - !<own> bb75b5ea-8baf-4d8d-bcf8-49bd79873881
   Components:
     []
+- !<ScriptComponent/fee1aceb-b7fd-406c-93ff-74be3f718ba9>
+  PrefabRemaps:
+    []
+  Name: CoffeeGroundsMesh
+  Enabled: true
+  ScriptAsset: !<reference> b28450ee-0433-4e98-b21c-db906cf4dd95
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+  ScriptTypes:
+    "":
+      {}

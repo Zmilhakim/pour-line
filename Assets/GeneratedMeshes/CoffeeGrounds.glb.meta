@@ -1,0 +1,125 @@
+- !<AssetImportMetadata/4a6dcc93-5f47-4e40-9d0b-3908c9071cf8>
+  ImportedAssetIds:
+    26ba073d67b9d0dd: !<reference> ef6370ec-582b-4b79-8635-dc2999673ffa
+    88ab437fd121cc69: !<reference> 80f28876-b593-44c2-a8cc-6f0d1538770c
+    8c2c6f3cf8d060fd: !<reference> 7aa676c9-97fa-4350-bbb5-c4707167ec4a
+    Meshes/Mesh 1: !<reference> e4b7635c-dd8e-4ce0-b6a4-187db9b514f1
+    Scene: !<reference> 136aea0c-b2d7-49aa-adf1-0051b032fea5
+    d596665d1a4bffd1: !<reference> 1e8efe51-57f8-48d3-9864-9c145febd075
+    ed3acca98b96b0a1: !<reference> 46b57573-fadc-4321-b5e9-80017a424661
+  ImporterName: GltfImporter
+  PrimaryAsset: !<reference> 136aea0c-b2d7-49aa-adf1-0051b032fea5
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 5ded0db9-f544-4a0b-ac22-5ab700cce26c
+  DependentFiles:
+    []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBasedV2
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: true
+    ConvertMetersToCentimeters: true
+    RegenerateTangents: false
+    OptimizeMesh: true
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<FileCompressionSettings>
+        {}
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<RenderMeshVisual/1e8efe51-57f8-48d3-679b-63eba0142f8a>
+  PrefabRemaps:
+    []
+  Name: ""
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> e4b7635c-dd8e-4ce0-b6a4-187db9b514f1
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<SceneObject/46b57573-fadc-4321-4a16-7ffe85bdb99e>
+  PrefabRemaps:
+    []
+  Name: geometry_0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 1e8efe51-57f8-48d3-679b-63eba0142f8a
+- !<ObjectPrefabAssetData/5ded0db9-f544-4a0b-ac22-5ab700cce26c>
+  Prototype: !<ObjectOwner/d538eb0c-fa29-4cb0-9954-a735acc29e0e>
+    PackagePath: ""
+    objects:
+      - !<own> ef6370ec-582b-4b79-79ca-23d66698c005
+- !<SceneObject/7aa676c9-97fa-4350-444a-3b8f8e9813b5>
+  PrefabRemaps:
+    []
+  Name: Scene0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 46b57573-fadc-4321-4a16-7ffe85bdb99e
+  Components:
+    []
+- !<SceneObject/80f28876-b593-44c2-5733-90f2eac788f3>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 7aa676c9-97fa-4350-444a-3b8f8e9813b5
+  Components:
+    []
+- !<SceneObject/ef6370ec-582b-4b79-79ca-23d66698c005>
+  PrefabRemaps:
+    []
+  Name: CoffeeGrounds
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 80f28876-b593-44c2-5733-90f2eac788f3
+  Components:
+    []

@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/2aa2e90c-145f-46f5-a17f-97cd5e439ba8>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f8903ef9-2ea9-4544-a295-9d37d913d53e
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f8903ef9-2ea9-4544-a295-9d37d913d53e
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> c8dcbd8b-9f31-455b-b7f9-216a44951692
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/c8dcbd8b-9f31-455b-b7f9-216a44951692>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  RunInEditor: false
+  ComponentUid: efb32a44-7a30-452a-8f4b-a482cbf09521
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    initialLength: false
+    material: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      initialLength: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Asset.Material material
+    - '// @input float initialLength {"hint":"Length in cm at start; 0 = hidden"}'

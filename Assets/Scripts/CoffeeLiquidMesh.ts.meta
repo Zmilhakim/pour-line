@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/0ee01a90-e7ae-4565-9ab8-87f972b7b736>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 8d63561e-e963-4f68-8df9-0119827a6e01
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 8d63561e-e963-4f68-8df9-0119827a6e01
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 0d0b5e84-0454-49e4-a1e6-60769bb612ed
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/0d0b5e84-0454-49e4-a1e6-60769bb612ed>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  RunInEditor: false
+  ComponentUid: 27c41f1c-7af8-4acb-abf8-12ecb5eaca11
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    initialFill: false
+    material: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - material: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      initialFill: !<float> 0.000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Asset.Material material
+    - '// @input float initialFill {"hint":"Fill level at start, 0 = empty, 1 = full (300 ml)"}'

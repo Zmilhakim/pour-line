@@ -1,0 +1,125 @@
+- !<AssetImportMetadata/362a2e4c-8f97-4aa1-96ce-17d6e7f24e5f>
+  ImportedAssetIds:
+    26ba073d67b9d0dd: !<reference> a25cbb68-c102-4019-8e91-7f2370a430ef
+    88ab437fd121cc69: !<reference> cd66b328-0fb0-4fd0-8bab-d769a8fc4069
+    8c2c6f3cf8d060fd: !<reference> c3ac51e9-a0c4-49cc-8f48-32cd92086292
+    Meshes/Mesh 1: !<reference> 17310e10-f398-4246-8507-3c7c6e37aa6f
+    Scene: !<reference> bf31f629-6b4b-406f-94c5-c4ae46434d59
+    d596665d1a4bffd1: !<reference> 22e95a08-1dec-418a-bd75-6feb39e65fa0
+    ed3acca98b96b0a1: !<reference> d07c2dc9-4429-44d3-bf08-af0a094f1448
+  ImporterName: GltfImporter
+  PrimaryAsset: !<reference> bf31f629-6b4b-406f-94c5-c4ae46434d59
+  PackageType: LegacyPackage
+  LegacyPackagePolicy: CanBeUnpackedTransparent
+  ExtraData:
+    {}
+  AssetDataMap:
+    Scene: !<own> 8d7e9a0b-8a39-4445-af5a-561e536a8ed5
+  DependentFiles:
+    []
+  ImporterSettings: !<GltfImporterSettings>
+    UseLegacyImporter: false
+    WithMaterials: true
+    NamingConvention: ByCategorySanitizeV2
+    PersistentIdGenerationAlgorithm: DescriptorBasedV2
+    AnimationCurveOptimization: true
+    CustomAnimationSamplingRate: 30.000000
+    ImportVertexColor: true
+    ImportTangents: true
+    ImportMorphTargetAnimation: true
+    ConvertMetersToCentimeters: true
+    RegenerateTangents: false
+    OptimizeMesh: true
+  CompressionSettings: !<ComplexCompressionSettings>
+    Presets:
+      None Compression: !<FileCompressionSettings>
+        {}
+    ExtensionMappings:
+      mesh: None Compression
+    Overrides:
+      {}
+- !<RenderMeshVisual/22e95a08-1dec-418a-428a-9014c619a05f>
+  PrefabRemaps:
+    []
+  Name: ""
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    []
+  Mesh: !<reference> 17310e10-f398-4246-8507-3c7c6e37aa6f
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    {}
+- !<ObjectPrefabAssetData/8d7e9a0b-8a39-4445-af5a-561e536a8ed5>
+  Prototype: !<ObjectOwner/d8622fc7-12dd-4278-b29d-75f9e2204871>
+    PackagePath: ""
+    objects:
+      - !<own> a25cbb68-c102-4019-716e-80dc8f5bcf10
+- !<SceneObject/a25cbb68-c102-4019-716e-80dc8f5bcf10>
+  PrefabRemaps:
+    []
+  Name: CoffeeLiquid
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 100.000000, y: 100.000000, z: 100.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> cd66b328-0fb0-4fd0-7454-28965703bf96
+  Components:
+    []
+- !<SceneObject/c3ac51e9-a0c4-49cc-70b7-cd326df79d6d>
+  PrefabRemaps:
+    []
+  Name: Scene0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> d07c2dc9-4429-44d3-40f7-50f5f6b0ebb7
+  Components:
+    []
+- !<SceneObject/cd66b328-0fb0-4fd0-7454-28965703bf96>
+  PrefabRemaps:
+    []
+  Name: Scenes
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> c3ac51e9-a0c4-49cc-70b7-cd326df79d6d
+  Components:
+    []
+- !<SceneObject/d07c2dc9-4429-44d3-40f7-50f5f6b0ebb7>
+  PrefabRemaps:
+    []
+  Name: geometry_0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 22e95a08-1dec-418a-428a-9014c619a05f
