@@ -67,7 +67,38 @@ export function buildTable(): Geo {
   for (const z of [-7.5, 7.5]) {
     g.flatQuad([-43.5, y, z + 0.06], [43.5, y, z + 0.06], [43.5, y, z - 0.06], [-43.5, y, z - 0.06], [0, 1, 0], BIRCH_SEAM);
   }
+  // Four square legs from the underside of the slab (y = 0) down to the floor,
+  // set in from the corners and tapering slightly towards the foot.
+  g.part("legs", false);
+  for (const sx of [-1, 1]) {
+    for (const sz of [-1, 1]) {
+      tableLeg(g, sx * TABLE_LEG_INSET_X, sz * TABLE_LEG_INSET_Z);
+    }
+  }
   return g;
+}
+
+/** Length of the table legs: the slab's underside (y = 0) is this far above the floor. */
+export const TABLE_LEG_LENGTH = 87;
+const TABLE_LEG_INSET_X = 40;
+const TABLE_LEG_INSET_Z = 18;
+const TABLE_LEG_HALF_TOP = 2.4;
+const TABLE_LEG_HALF_FOOT = 1.8;
+
+/** One leg centred on (cx, cz), from y = 0 down to y = -TABLE_LEG_LENGTH. Faces are tinted so the leg reads as a solid post. */
+function tableLeg(g: Geo, cx: number, cz: number): void {
+  const a = TABLE_LEG_HALF_TOP;
+  const b = TABLE_LEG_HALF_FOOT;
+  const y1 = 0;
+  const y0 = -TABLE_LEG_LENGTH;
+  const front = scaleRGB(BIRCH, 0.95);
+  const side = scaleRGB(BIRCH, 0.84);
+  const back = scaleRGB(BIRCH, 0.76);
+  g.flatQuad([cx - b, y0, cz + b], [cx + b, y0, cz + b], [cx + a, y1, cz + a], [cx - a, y1, cz + a], [0, 0, 1], front);
+  g.flatQuad([cx + b, y0, cz - b], [cx - b, y0, cz - b], [cx - a, y1, cz - a], [cx + a, y1, cz - a], [0, 0, -1], back);
+  g.flatQuad([cx + b, y0, cz + b], [cx + b, y0, cz - b], [cx + a, y1, cz - a], [cx + a, y1, cz + a], [1, 0, 0], side);
+  g.flatQuad([cx - b, y0, cz - b], [cx - b, y0, cz + b], [cx - a, y1, cz + a], [cx - a, y1, cz - a], [-1, 0, 0], side);
+  g.flatQuad([cx - b, y0, cz - b], [cx + b, y0, cz - b], [cx + b, y0, cz + b], [cx - b, y0, cz + b], [0, -1, 0], back);
 }
 
 /** Single-burner stove, 26 x 8 x 26. Burner at the centre, knob on the front (+Z). */

@@ -21,7 +21,7 @@ Every morning I boil water and make my coffee by hand (ground coffee in the glas
 
 ## Where things live
 - Where the user is looking during the main task: down and slightly right, at the glass on the table.
-- Table with stove: in front of the user, about 55 cm away (default), top at about 90 cm from the floor (default).
+- Table with stove: in front of the user, about 55 cm away (default), top at about 90 cm from the floor (default). The table has four legs and stands on the floor (asked for by the learner after trying the first build: "make the table have legs").
 - Kettle: on the stove, directly in front of the user. Real kettle size, about 18 cm tall (default).
 - Glass: on the table to the user's right ("the glass is on the table to my right"), about 30 cm right of the kettle (default). Holds 300 ml: about 12 cm tall and 7.5 cm across (default). Ground coffee is already in the bottom of the glass (default; in real life it is measured while the water boils).
 - Millilitre scale: on the front of the glass, the side facing the user ("the numbers are on the front of the glass"). Numbers run in a column from the bottom to the top. Marks every 50 ml, from 50 to 300 (default). Light-coloured text, large enough to read from where the user stands.
@@ -33,7 +33,7 @@ Every morning I boil water and make my coffee by hand (ground coffee in the glas
 - Stop: release the pinch. The water stops at once.
 - Add more: pinch the kettle again and drag upward again. There is no fixed target. The user decides each time ("sometimes more water, sometimes less, so the taste is different"; for example, stopping at 200 ml in the 300 ml glass).
 - Pouring stops by itself at 300 ml so the glass never overflows (default).
-- When the kettle is released away from the glass, it returns to the stove (default).
+- When the kettle is released away from the glass, it returns to the stove (default). Back on the stove it always stands level, never tilted (asked for by the learner after trying the first build).
 - Targets are big and highlight when aimed at.
 - Voice (if any) and the button that does the same job: none.
 - A single large "Start over" button beside the stove empties the glass and puts the kettle back, so the pour can be repeated (default; added for the demo).

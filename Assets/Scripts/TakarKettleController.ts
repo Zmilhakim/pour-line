@@ -37,6 +37,8 @@ import {
 const TAG = "[TakarKettleController]"
 /** Radius of the small sphere collider at the kettle origin (see onAwake). */
 const KETTLE_GRAB_ANCHOR_RADIUS_CM = 1.2
+/** Below this tilt (about 0.03 degrees) a levelling kettle snaps to exactly level. */
+const TILT_EPSILON_RAD = 0.0005
 
 type HighlightEntry = { material: Material; original: vec4 }
 
@@ -111,6 +113,7 @@ export class TakarKettleController extends BaseScriptComponent {
 
   private tilt = 0
   private returnFrom = vec3.zero()
+  private returnTilt = 0
   private returnElapsed = 0
   private highlights: HighlightEntry[] = []
   private highlightRing: SceneObject | null = null
@@ -200,12 +203,11 @@ export class TakarKettleController extends BaseScriptComponent {
     this.dragAccum = vec3.zero()
     const tr = this.sceneObject.getTransform()
     if (immediate) {
-      this.tilt = 0
-      tr.setWorldPosition(this.home)
-      tr.setWorldRotation(this.homeRotation)
+      this.settleHome()
       this.setState("onStove")
     } else {
       this.returnFrom = tr.getWorldPosition()
+      this.returnTilt = this.tilt
       this.returnElapsed = 0
       this.setState("returning")
     }
@@ -235,6 +237,8 @@ export class TakarKettleController extends BaseScriptComponent {
     ia.onTriggerEnd.add((_e: InteractorEvent) => this.handleRelease())
     ia.onTriggerEndOutside.add((_e: InteractorEvent) => this.handleRelease())
     ia.onTriggerCanceled.add((_e: InteractorEvent) => this.handleRelease())
+    // A drag that ends without a trigger-end event (pointer lost) must not leave the kettle held.
+    ia.onDragEnd.add((_e: DragInteractorEvent) => this.handleRelease())
     ia.onDragStart.add((e: DragInteractorEvent) => this.handleDrag(e))
     ia.onDragUpdate.add((e: DragInteractorEvent) => this.handleDrag(e))
   }
@@ -260,21 +264,57 @@ export class TakarKettleController extends BaseScriptComponent {
     const dt = getDeltaTime()
     const tr = this.sceneObject.getTransform()
 
+    // On the stove the pose is exactly the captured home pose: no easing, no leftover tilt.
+    if (this.state === "onStove") {
+      this.settleHome()
+      return
+    }
+
+    // Returning: position and whatever tilt was left glide home on the same tween and
+    // end on the exact home pose, so nothing can overwrite it afterwards.
     if (this.state === "returning") {
       this.returnElapsed += dt
       const k = Math.min(1, this.returnElapsed / Math.max(this.returnSeconds, 0.01))
+      if (k >= 1) {
+        this.settleHome()
+        this.setState("onStove")
+        return
+      }
       const s = k * k * (3 - 2 * k)
       tr.setWorldPosition(vec3.lerp(this.returnFrom, this.home, s))
-      if (k >= 1) this.setState("onStove")
-    } else {
-      const target = this.targetPosition()
-      const f = 1 - Math.exp(-25 * dt)
-      tr.setWorldPosition(vec3.lerp(tr.getWorldPosition(), target, f))
+      this.tilt = this.returnTilt * (1 - s)
+      this.applyTilt(tr)
+      return
     }
 
-    const targetTilt = this.state === "pouring" ? (this.pourTiltDeg * Math.PI) / 180 : 0
-    this.tilt += (targetTilt - this.tilt) * (1 - Math.exp(-12 * dt))
-    tr.setWorldRotation(this.homeRotation.multiply(quat.angleAxis(-this.tilt, new vec3(0, 0, 1))))
+    const target = this.targetPosition()
+    const f = 1 - Math.exp(-25 * dt)
+    tr.setWorldPosition(vec3.lerp(tr.getWorldPosition(), target, f))
+
+    // The tilt exists only while the kettle is held and pouring; every other state levels it out.
+    const pouring = this.state === "pouring" && this.held
+    const targetTilt = pouring ? (this.pourTiltDeg * Math.PI) / 180 : 0
+    const rate = this.state === "carried" ? 30 : 12
+    this.tilt += (targetTilt - this.tilt) * (1 - Math.exp(-rate * dt))
+    if (!pouring && Math.abs(this.tilt) < TILT_EPSILON_RAD) this.tilt = 0
+    this.applyTilt(tr)
+  }
+
+  /** Exact home pose, tilt cleared. */
+  private settleHome(): void {
+    this.tilt = 0
+    this.returnTilt = 0
+    const tr = this.sceneObject.getTransform()
+    tr.setWorldPosition(this.home)
+    tr.setWorldRotation(this.homeRotation)
+  }
+
+  private applyTilt(tr: Transform): void {
+    if (this.tilt === 0) {
+      tr.setWorldRotation(this.homeRotation)
+    } else {
+      tr.setWorldRotation(this.homeRotation.multiply(quat.angleAxis(-this.tilt, new vec3(0, 0, 1))))
+    }
   }
 
   // ---------- gesture handling ----------
