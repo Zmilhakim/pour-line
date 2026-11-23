@@ -45,7 +45,8 @@ export const GROUNDS_HIDE_HEIGHT_CM = 0.8
 
 // ── Layout numbers from the plan (world cm, TakarRoot at identity) ──────────
 
-export const KETTLE_HOME_X = 0
+/** Wrapper origin at home: stove centre (0) minus KETTLE_BODY_AXIS_LOCAL_X, so the round body sits on the burner axis. */
+export const KETTLE_HOME_X = 3
 export const KETTLE_HOME_Y = -62
 export const KETTLE_HOME_Z = -55
 export const KETTLE_POUR_SPOT_X = 15.5
@@ -61,6 +62,8 @@ export const KETTLE_SIZE_Y = 18
 export const KETTLE_SIZE_Z = 16
 /** Padding added per side to the kettle grab collider. */
 export const KETTLE_COLLIDER_PAD_CM = 2
+/** Kettle-local X of the round body's axis (MeshShapes KETTLE_BODY_AXIS_X): the footprint is centred on the origin, spout included. */
+export const KETTLE_BODY_AXIS_LOCAL_X = -3
 /** Spout tip in kettle-local cm (spout points +X). */
 export const KETTLE_SPOUT_TIP_LOCAL_X = 10.15
 export const KETTLE_SPOUT_TIP_LOCAL_Y = 10.9

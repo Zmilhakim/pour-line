@@ -27,6 +27,9 @@ Every morning I boil water and make my coffee by hand (ground coffee in the glas
 - Millilitre scale: on the front of the glass, the side facing the user ("the numbers are on the front of the glass"). Numbers run in a column from the bottom to the top. Marks every 50 ml, from 50 to 300 (default). Light-coloured text, large enough to read from where the user stands.
 - Coffee in the glass: the liquid rises as water is added, and its colour goes from dark brown to a lighter brown as the amount increases ("when it has just been poured it is dark brown, and as more water is added the colour fades").
 
+- Demo placement (chosen by the learner while testing): the preview room is Lens Studio's built-in "Colorful Home". In the middle of the room the table "blocked the walkway", so the whole stand-in stands against a bare wall, like a kitchen side table, about 3 m from the start position. The user walks up to it. On real glasses the stand-in would not exist; the scale would sit on the user's own glass.
+- Kettle at rest: its body sits exactly in the middle of the burner (asked for by the learner: "I want the kettle to sit in the middle of the stove").
+
 ## Hands and input
 - Move the kettle: pinch the kettle on the stove and drag it to the right until it is over the glass.
 - Pour: with the kettle over the glass, keep the pinch and drag upward. Water flows from the kettle into the glass and the level rises. Pouring only works when the kettle is positioned over the glass ("the position has to be right at the glass").

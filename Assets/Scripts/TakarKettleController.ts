@@ -32,6 +32,7 @@ import {
   KETTLE_SIZE_Y,
   KETTLE_SIZE_Z,
   KETTLE_COLLIDER_PAD_CM,
+  KETTLE_BODY_AXIS_LOCAL_X,
   KETTLE_SPOUT_TIP_LOCAL_X,
   KETTLE_SPOUT_TIP_LOCAL_Y
 } from "./TakarSceneContracts"
@@ -498,7 +499,7 @@ export class TakarKettleController extends BaseScriptComponent {
       builder.appendIndices(indices)
       const obj = global.scene.createSceneObject("KettleHighlightRing")
       obj.setParent(this.sceneObject)
-      obj.getTransform().setLocalPosition(new vec3(0, 0.3, 0))
+      obj.getTransform().setLocalPosition(new vec3(KETTLE_BODY_AXIS_LOCAL_X, 0.3, 0))
       const visual = obj.createComponent("Component.RenderMeshVisual") as RenderMeshVisual
       visual.mesh = builder.getMesh()
       const material = this.highlights[0].material.clone()
