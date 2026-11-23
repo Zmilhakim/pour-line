@@ -3,6 +3,8 @@
  *
  * OWNS: the kettle pose (world position + tilt) and the kettle state machine
  * (onStove -> carried -> overGlass -> pouring -> parkedOverGlass / returning).
+ * parkedOverGlass is a grace period: after setParkSeconds() seconds without a new
+ * pinch the kettle returns to the stove by itself (returning -> onStove).
  * Attached to the unit-scale wrapper SceneObject "Kettle" (mesh origin at the base
  * centre, spout pointing local +X). Ensures its own grab collider and Interactable.
  * Hover / held highlight: a warm ring around the kettle base, built here with
@@ -115,6 +117,9 @@ export class TakarKettleController extends BaseScriptComponent {
   private returnFrom = vec3.zero()
   private returnTilt = 0
   private returnElapsed = 0
+  /** Grace period (s) the released kettle stays over the glass before gliding home by itself. */
+  private parkSeconds = 3
+  private parkElapsed = 0
   private highlights: HighlightEntry[] = []
   private highlightRing: SceneObject | null = null
 
@@ -194,6 +199,15 @@ export class TakarKettleController extends BaseScriptComponent {
   setPourAllowed(allowed: boolean): void {
     this.pourAllowed = allowed
     if (!allowed && this.state === "pouring") this.setState("overGlass")
+  }
+
+  /**
+   * Seconds the released kettle waits over the glass before it returns to the stove
+   * by itself. TakarMain passes its scaleHoldSeconds, so the scale hold and the kettle
+   * grace period share one setting.
+   */
+  setParkSeconds(seconds: number): void {
+    this.parkSeconds = seconds > 0 ? seconds : 0
   }
 
   returnHome(immediate: boolean): void {
@@ -285,6 +299,17 @@ export class TakarKettleController extends BaseScriptComponent {
       this.tilt = this.returnTilt * (1 - s)
       this.applyTilt(tr)
       return
+    }
+
+    // Parked over the glass and not pinched: after the grace period the kettle glides
+    // home on the normal return tween. Any state change leaves this branch, so a new
+    // pinch or Start over cancels the pending return; the timer restarts on each release.
+    if (this.state === "parkedOverGlass" && !this.held) {
+      this.parkElapsed += dt
+      if (this.parkElapsed >= this.parkSeconds) {
+        this.returnHome(false)
+        return
+      }
     }
 
     const target = this.targetPosition()
@@ -386,6 +411,7 @@ export class TakarKettleController extends BaseScriptComponent {
     if (next === this.state) return
     const previous = this.state
     this.state = next
+    if (next === "parkedOverGlass") this.parkElapsed = 0
     this.stateChangedEvent.invoke({ state: next, previous: previous })
     if (next === "pouring") this.pourLiftChangedEvent.invoke(true)
     else if (previous === "pouring") this.pourLiftChangedEvent.invoke(false)

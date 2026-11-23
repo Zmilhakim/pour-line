@@ -31,7 +31,8 @@ Every morning I boil water and make my coffee by hand (ground coffee in the glas
 - Move the kettle: pinch the kettle on the stove and drag it to the right until it is over the glass.
 - Pour: with the kettle over the glass, keep the pinch and drag upward. Water flows from the kettle into the glass and the level rises. Pouring only works when the kettle is positioned over the glass ("the position has to be right at the glass").
 - Stop: release the pinch. The water stops at once.
-- Add more: pinch the kettle again and drag upward again. There is no fixed target. The user decides each time ("sometimes more water, sometimes less, so the taste is different"; for example, stopping at 200 ml in the 300 ml glass).
+- After release the kettle waits level over the glass for 3 seconds (the same pause as the scale), then glides back to the stove by itself and sits upright (changed by the learner after watching the first build: the kettle left hanging beside the glass looked untidy).
+- Add more: within those 3 seconds, pinch the kettle again and drag upward again; after it has returned, bring it over from the stove again. The level continues from where it was. There is no fixed target. The user decides each time ("sometimes more water, sometimes less, so the taste is different"; for example, stopping at 200 ml in the 300 ml glass).
 - Pouring stops by itself at 300 ml so the glass never overflows (default).
 - When the kettle is released away from the glass, it returns to the stove (default). Back on the stove it always stands level, never tilted (asked for by the learner after trying the first build).
 - Targets are big and highlight when aimed at.

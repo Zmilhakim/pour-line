@@ -142,6 +142,9 @@ export class TakarMain extends BaseScriptComponent {
       this.appliedVolume = this.sfxVolume
     }
 
+    // One setting for both: the kettle waits over the glass exactly as long as the scale holds.
+    this.kettle.setParkSeconds(this.scaleHoldSeconds)
+
     const kettleState: KettleState = this.kettle.getState()
     const wantsPour = kettleState === "pouring"
     const scaleHeld = kettleState === "overGlass" || kettleState === "pouring"
