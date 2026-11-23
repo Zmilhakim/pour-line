@@ -2,6 +2,8 @@
 
 A Lens for SPECS that puts a measuring scale on your glass while you pour.
 
+**Demo video (0:42):** https://youtu.be/8sqTh66oIzs
+
 Made for the Learn AR with SPECS hackathon. "Takar" (Indonesian for "measure") was the working title, so files
 and scene objects in the project still carry that name.
 
