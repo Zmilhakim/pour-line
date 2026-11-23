@@ -225,6 +225,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/0431e20c-c14f-4697-b0e3-1074b43a324b>
+  PrefabRemaps:
+    []
+  Name: GasHose
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -10.000000, y: -128.800003, z: -62.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 4ffa0edb-a0bf-41ad-b06b-28381cafcf96
 - !<SceneObject/0451d993-a1f7-464e-9b69-32c0d9af8ed7>
   PrefabRemaps:
     []
@@ -1096,6 +1111,22 @@
     []
   Components:
     - !<own> 5f153ad7-2baa-4fd9-a298-0dcfad86da3b
+- !<ScriptComponent/4ffa0edb-a0bf-41ad-b06b-28381cafcf96>
+  PrefabRemaps:
+    []
+  Name: GasHoseMesh
+  Enabled: true
+  ScriptAsset: !<reference> 60fdecc4-5220-4747-ba3e-8732b109153f
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/52ecefe4-5642-445a-ad16-52ce818076bc>
   PrefabRemaps:
     []
@@ -2356,6 +2387,8 @@
     - !<own> 34fdb5f5-6619-4081-a61e-27070e960867
     - !<own> 2a9ed64f-9c34-4663-894a-db5d148b504e
     - !<own> 242dd99e-6e92-4b33-ba95-b266e5ba4640
+    - !<own> f227ce92-84ff-4387-bb2d-ccd7db170c4c
+    - !<own> 0431e20c-c14f-4697-b0e3-1074b43a324b
   Components:
     []
 - !<ScriptComponent/c4211e0e-ced7-47b4-a01d-7b305d9a2ccb>
@@ -2667,6 +2700,22 @@
     - !<own> 74d13517-1dbf-42e6-b536-27afc4909c65
   Components:
     []
+- !<ScriptComponent/d9379f10-5708-40fb-9e6e-05a699046927>
+  PrefabRemaps:
+    []
+  Name: GasCylinderMesh
+  Enabled: true
+  ScriptAsset: !<reference> 80ec9a0c-1b88-4fb7-8fc5-e9f4d8456e35
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      material: !<reference.Material> 70d03593-c7b4-410a-ae5c-75cb82ee32dc
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/da214b27-43a7-4db4-90fd-993798e859d9>
   PrefabRemaps:
     []
@@ -2920,6 +2969,21 @@
     []
   Components:
     []
+- !<SceneObject/f227ce92-84ff-4387-bb2d-ccd7db170c4c>
+  PrefabRemaps:
+    []
+  Name: GasCylinder
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -5.000000, y: -160.000000, z: -62.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> d9379f10-5708-40fb-9e6e-05a699046927
 - !<SceneObject/f36287fd-ed56-442d-ba20-78f9ef6f3502>
   PrefabRemaps:
     []

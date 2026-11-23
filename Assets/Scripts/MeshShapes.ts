@@ -20,10 +20,18 @@ const GROUNDS: RGBA = [0.62, 0.4, 0.22, 1];
 export const COFFEE_DEEP: RGBA = [0.42, 0.24, 0.12, 1];
 export const COFFEE_LIGHT: RGBA = [0.8, 0.58, 0.35, 1];
 const WATER: RGBA = [0.62, 0.93, 1.0, 0.55];
+const GAS_GREEN: RGBA = [0.4, 0.82, 0.44, 1];
+const GAS_GREEN_LIGHT: RGBA = [0.56, 0.92, 0.58, 1];
+const HOSE_ORANGE: RGBA = [1.0, 0.58, 0.18, 1];
 
 // ---- shared dimensions -----------------------------------------------------
 /** Height of the stove's pan supports: a kettle stands at this y on the stove. */
 export const STOVE_TOP_Y = 8;
+/**
+ * Where the gas hose ends on the stove, in stove space: on the inlet nipple that
+ * sticks out of the left (-X) face, towards the back.
+ */
+export const STOVE_GAS_INLET: V3 = [-13.0, 2.4, -8];
 /** The kettle's round body is not at the mesh origin: the spout takes the +X side. */
 export const KETTLE_BODY_AXIS_X = -3;
 /** Centre of the spout opening, in kettle space. Water leaves here. */
@@ -142,6 +150,13 @@ export function buildStove(): Geo {
   );
   g.part("knob mark", false);
   g.flatQuad([-0.15, knobY + 0.2, 12.96], [0.15, knobY + 0.2, 12.96], [0.15, knobY + 1.2, 12.96], [-0.15, knobY + 1.2, 12.96], [0, 0, 1], SOFT_WHITE);
+
+  // Gas inlet on the left face (x = -11.8): a hex nut and a nipple the hose slips over.
+  const inY = STOVE_GAS_INLET[1];
+  const inZ = STOVE_GAS_INLET[2];
+  g.part("gas inlet", false);
+  g.tube([[-11.7, inY, inZ], [-12.6, inY, inZ]], [0.8, 0.8], 6, () => STEEL_MID, undefined, STEEL);
+  g.tube([[-12.5, inY, inZ], [STOVE_GAS_INLET[0] - 1.0, inY, inZ]], [GAS_NIPPLE_RADIUS, GAS_NIPPLE_RADIUS], 10, () => STEEL, undefined, STEEL_MID);
   return g;
 }
 
@@ -352,6 +367,209 @@ export function buildScaleTicks(opacity: number): Geo {
       prevLo = lo;
       prevHi = hi;
     }
+  }
+  return g;
+}
+
+// ---- gas cylinder and hose ---------------------------------------------------
+const GAS_NIPPLE_RADIUS = 0.45;
+export const GAS_HOSE_RADIUS = 0.6;
+/** Height of the regulator's outlet nipple above the cylinder's base. */
+const GAS_OUTLET_Y = 31.2;
+/**
+ * Where the gas hose starts on the cylinder, in cylinder space: on the regulator's
+ * outlet nipple, which points to -X through the opening of the collar.
+ */
+export const GAS_REGULATOR_OUTLET: V3 = [-5.0, GAS_OUTLET_Y, 0];
+
+/**
+ * Curved wall around the y axis from angle a0 to a1 (radians, x = cos, z = sin),
+ * between radii r0 < r1 and heights y0 < y1: outside, inside, top and both ends.
+ */
+function arcWall(g: Geo, r0: number, r1: number, y0: number, y1: number, a0: number, a1: number, segs: number, c: RGBA, top: RGBA): void {
+  let prev: number[] = [];
+  for (let k = 0; k <= segs; k++) {
+    const a = a0 + ((a1 - a0) * k) / segs;
+    const cs = Math.cos(a);
+    const sn = Math.sin(a);
+    const out: V3 = [cs, 0, sn];
+    const inw: V3 = [-cs, 0, -sn];
+    const up: V3 = [0, 1, 0];
+    const cur = [
+      g.vert([r1 * cs, y0, r1 * sn], out, c),
+      g.vert([r1 * cs, y1, r1 * sn], out, c),
+      g.vert([r0 * cs, y0, r0 * sn], inw, scaleRGB(c, 0.85)),
+      g.vert([r0 * cs, y1, r0 * sn], inw, scaleRGB(c, 0.85)),
+      g.vert([r0 * cs, y1, r0 * sn], up, top),
+      g.vert([r1 * cs, y1, r1 * sn], up, top),
+    ];
+    if (k > 0) {
+      g.quad(prev[0], cur[0], cur[1], prev[1]);
+      g.quad(prev[2], cur[2], cur[3], prev[3]);
+      g.quad(prev[4], cur[4], cur[5], prev[5]);
+    }
+    prev = cur;
+  }
+  for (const end of [a0, a1]) {
+    const cs = Math.cos(end);
+    const sn = Math.sin(end);
+    const sgn = end === a0 ? -1 : 1;
+    const n: V3 = [-sn * sgn, 0, cs * sgn];
+    g.flatQuad([r0 * cs, y0, r0 * sn], [r1 * cs, y0, r1 * sn], [r1 * cs, y1, r1 * sn], [r0 * cs, y1, r0 * sn], n, c);
+  }
+}
+
+/**
+ * Small household gas cylinder, 26 across and about 35 tall with its regulator.
+ * Stands on y = 0 on a foot ring; domed shoulders, a collar (hand guard) open to
+ * the left and right of the valve, and a regulator whose outlet points to -X
+ * (GAS_REGULATOR_OUTLET).
+ */
+export function buildGasCylinder(): Geo {
+  const g = new Geo();
+  const ring = circleOutline(32);
+
+  g.part("foot ring", true);
+  g.sweep(ring, [[9.6, 0], [10.4, 0], [10.4, 3.8], [9.6, 3.8], [9.6, 0]], () => scaleRGB(GAS_GREEN, 0.86), { smoothDeg: 20 });
+
+  g.part("body", true);
+  g.sweep(
+    ring,
+    [
+      [0, 2.2], [6, 2.5], [10, 3.7], [12.2, 6], [13, 9.5], [13, 19], [12.3, 22.5], [10.3, 25.2], [7, 26.6], [3.2, 27.1], [0, 27.1],
+    ],
+    (i) => (i < 4 ? scaleRGB(GAS_GREEN, 0.92) : i < 5 ? GAS_GREEN : mix(GAS_GREEN, GAS_GREEN_LIGHT, 0.45)),
+    { smoothDeg: 50 }
+  );
+  // Weld seam around the middle.
+  g.part("seam", false);
+  g.sweep(ring, [[13, 13.7], [13.2, 13.9], [13.2, 14.5], [13, 14.7]], () => GAS_GREEN_LIGHT, { smoothDeg: 60 });
+
+  // Collar: two guard panels, front and back. It is open towards -X, where the
+  // regulator's outlet and the hose leave, and towards +X; the regulator stands above it.
+  g.part("collar", false);
+  const gap = (40 * Math.PI) / 180;
+  arcWall(g, 7.5, 8.0, 25.6, 31.4, gap, Math.PI - gap, 14, GAS_GREEN, GAS_GREEN_LIGHT);
+  arcWall(g, 7.5, 8.0, 25.6, 31.4, Math.PI + gap, Math.PI * 2 - gap, 14, GAS_GREEN, GAS_GREEN_LIGHT);
+
+  g.part("valve", false);
+  g.sweep(circleOutline(6), [[2.3, 26.9], [2.3, 28.2], [0, 28.2]], () => STEEL_MID, { smoothDeg: 20 });
+  g.sweep(circleOutline(16), [[1.5, 28.2], [1.5, 30], [0, 30]], () => STEEL, { smoothDeg: 20 });
+
+  g.part("regulator", false);
+  g.sweep(
+    circleOutline(24),
+    [[0, 29.6], [2.6, 29.6], [3.4, 30.2], [3.4, 32.4], [2.8, 33.0], [1.3, 33.0], [1.3, 33.6], [1.9, 33.9], [1.9, 34.5], [1.5, 34.9], [0, 34.9]],
+    (i) => (i < 4 ? STEEL : i < 6 ? scaleRGB(STEEL, 1.08) : SOFT_WHITE),
+    { smoothDeg: 40 }
+  );
+  // Outlet: a hex nut and a nipple the hose slips over.
+  g.part("outlet", false);
+  g.tube([[-3.2, GAS_OUTLET_Y, 0], [-4.1, GAS_OUTLET_Y, 0]], [0.8, 0.8], 6, () => STEEL_MID, undefined, STEEL);
+  g.tube([[-4.0, GAS_OUTLET_Y, 0], [GAS_REGULATOR_OUTLET[0] - 1.0, GAS_OUTLET_Y, 0]], [GAS_NIPPLE_RADIUS, GAS_NIPPLE_RADIUS], 10, () => STEEL, undefined, STEEL_MID);
+  return g;
+}
+
+// Layout of the gas line, in the space of the parent that holds table, stove and cylinder.
+/** Where the GasCylinder object stands (base centre, on the floor under the table). */
+export const GAS_CYLINDER_POSITION: V3 = [-5, -160, -62];
+/** Where the Stove object stands. */
+const GAS_STOVE_POSITION: V3 = [0, -70, -55];
+/** Where the GasHose object goes: the hose starts at its origin, on the regulator's outlet. */
+export const GAS_HOSE_ORIGIN: V3 = [
+  GAS_CYLINDER_POSITION[0] + GAS_REGULATOR_OUTLET[0],
+  GAS_CYLINDER_POSITION[1] + GAS_REGULATOR_OUTLET[1],
+  GAS_CYLINDER_POSITION[2] + GAS_REGULATOR_OUTLET[2],
+];
+/** Far end of the hose, on the stove's inlet nipple, in the same parent space. */
+export const GAS_HOSE_STOVE_END: V3 = [
+  GAS_STOVE_POSITION[0] + STOVE_GAS_INLET[0],
+  GAS_STOVE_POSITION[1] + STOVE_GAS_INLET[1],
+  GAS_STOVE_POSITION[2] + STOVE_GAS_INLET[2],
+];
+
+/**
+ * Route of the hose in parent space: out of the collar to the left, a slack loop
+ * under the table, up outside the left edge of the tabletop (x = -40), over the
+ * edge, then along the top behind the Start-over panel to the stove's left face.
+ */
+function gasHoseRoute(): V3[] {
+  const a = GAS_HOSE_ORIGIN;
+  const b = GAS_HOSE_STOVE_END;
+  return [
+    a,
+    [a[0] - 1.5, a[1], a[2]],
+    [a[0] - 4.2, a[1] - 0.2, a[2] - 0.05],
+    [-19, -130.9, -62.4],
+    [-27, -135.2, -63.2],
+    [-34.5, -134.2, -64.0],
+    [-40.2, -125, -64.5],
+    [-42.8, -110, -64.8],
+    [-42.9, -92, -65.0],
+    [-42.7, -80, -65.2],
+    [-42.2, -73.5, -65.3],
+    [-41.0, -69.6, -65.35],
+    [-38.8, -67.3, -65.4],
+    [-35.8, -67.2, -65.5],
+    [-33.0, -68.3, -65.6],
+    [-30.4, -69.2, -65.65],
+    [-27.5, -69.35, -65.7],
+    [-24, -69.35, -65.6],
+    [-21, -69.15, -65.1],
+    [-18.6, -68.5, -64.1],
+    [b[0] - 3.4, b[1] - 0.25, b[2] - 0.35],
+    [b[0] - 1.6, b[1], b[2]],
+    b,
+  ];
+}
+
+/** Smooth curve through the points (Catmull-Rom), `perSpan` steps between neighbours. */
+function splinePath(pts: V3[], perSpan: number): V3[] {
+  const out: V3[] = [];
+  const n = pts.length;
+  for (let i = 0; i < n - 1; i++) {
+    const p0 = pts[Math.max(i - 1, 0)];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[Math.min(i + 2, n - 1)];
+    for (let k = 0; k < perSpan; k++) {
+      const t = k / perSpan;
+      const t2 = t * t;
+      const t3 = t2 * t;
+      const q: V3 = [0, 0, 0];
+      for (let c = 0; c < 3; c++) {
+        q[c] = 0.5 * (2 * p1[c] + (p2[c] - p0[c]) * t + (2 * p0[c] - 5 * p1[c] + 4 * p2[c] - p3[c]) * t2 + (3 * p1[c] - p0[c] - 3 * p2[c] + p3[c]) * t3);
+      }
+      out.push(q);
+    }
+  }
+  out.push(pts[n - 1]);
+  return out;
+}
+
+/** Centre line of the gas hose in hose space (origin = GAS_HOSE_ORIGIN, the regulator end). */
+export function gasHosePath(): V3[] {
+  const o = GAS_HOSE_ORIGIN;
+  return splinePath(gasHoseRoute(), 5).map((p): V3 => [p[0] - o[0], p[1] - o[1], p[2] - o[2]]);
+}
+
+/**
+ * Orange gas hose, 1.2 thick, from the regulator's outlet (the origin) to the
+ * stove's inlet, with a metal clamp ring at each end. Its space has the same
+ * axes as the cylinder's and the stove's parent: put the object at GAS_HOSE_ORIGIN.
+ */
+export function buildGasHose(): Geo {
+  const g = new Geo();
+  const path = gasHosePath();
+  const m = path.length;
+  g.part("hose", true);
+  g.tube(path, path.map(() => GAS_HOSE_RADIUS), 10, () => HOSE_ORANGE, scaleRGB(HOSE_ORANGE, 0.85), scaleRGB(HOSE_ORANGE, 0.85));
+
+  // Clamp rings, a little way in from each end. Both ends run along the x axis,
+  // and at both the hose lies on the -X side of its end point.
+  g.part("clamps", false);
+  for (const end of [path[0], path[m - 1]]) {
+    g.tube([[end[0] - 0.35, end[1], end[2]], [end[0] - 1.0, end[1], end[2]]], [0.8, 0.8], 12, () => STEEL, STEEL_MID, STEEL_MID);
   }
   return g;
 }

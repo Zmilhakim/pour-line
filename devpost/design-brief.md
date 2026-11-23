@@ -28,6 +28,7 @@ Every morning I boil water and make my coffee by hand (ground coffee in the glas
 - Coffee in the glass: the liquid rises as water is added, and its colour goes from dark brown to a lighter brown as the amount increases ("when it has just been poured it is dark brown, and as more water is added the colour fades").
 
 - Demo placement (chosen by the learner while testing): the preview room is Lens Studio's built-in "Colorful Home". In the middle of the room the table "blocked the walkway", so the whole stand-in stands against a bare wall, like a kitchen side table, about 3 m from the start position. The user walks up to it. On real glasses the stand-in would not exist; the scale would sit on the user's own glass.
+- Gas cylinder: a small green household gas cylinder stands on the floor under the table, with an orange hose running up to the stove (asked for by the learner: "under the table add a gas cylinder and connect its hose to the stove"). Decoration only; it cannot be grabbed.
 - Kettle at rest: its body sits exactly in the middle of the burner (asked for by the learner: "I want the kettle to sit in the middle of the stove").
 
 ## Hands and input
