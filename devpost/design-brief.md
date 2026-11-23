@@ -2,7 +2,9 @@
 status: approved
 ---
 
-# Design brief: Takar (working title, default)
+# Design brief: Pour Line
+
+<!-- Name chosen by the learner. "Takar" (Indonesian for "measure") was the working title and is still used for file and object names in the project. -->
 
 <!-- Filled in by plan-lens from the learner's interview. Use the learner's words. Mark any value they didn't choose as (default). -->
 <!-- The interview was held in Indonesian. The learner's answers are translated here; the original words are kept in quotes where the wording matters. -->
@@ -67,7 +69,6 @@ Each one can be checked in Lens Studio's preview.
 - Feel unproven: on real glasses the level would have to be sensed from a real glass, and real hands holding a real kettle would replace the pinch-and-drag. Only the logic can be shown in the preview.
 - The view of SPECS is narrow (about 37° tall by 32° wide). A kettle held above a glass at arm's length may not fit in view together with the scale. The scale and the liquid matter most and must stay in view; the kettle may be partly cut off.
 - Pinch-drag does two jobs (moving the kettle, then pouring by dragging up). The build must make the switch between them clear, for example by snapping the kettle into a pouring spot over the glass.
-- The lens name is a working title the learner has not chosen yet.
 
 ## Build notes for CLAD
 - Build for SPECS so it runs and can be demonstrated in Lens Studio's preview. No SPECS device is available.
